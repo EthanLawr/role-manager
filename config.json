@@ -1,0 +1,7 @@
+{
+  "token": " Your bot token here ",
+  "clientId": " Your bot's client id here ",
+  "guildId": " Home server id here (dev slash commands)",
+  "ownerId": " Your id here ",
+  "prefix": " Prefered prefix here (currently no prefix commands)"
+}
