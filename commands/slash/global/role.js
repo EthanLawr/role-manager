@@ -152,11 +152,12 @@ module.exports = {
                             if (!fs.existsSync(previewsDir)) {
                                 fs.mkdirSync(previewsDir);
                             }
-                
-                            // temp save dark and light mode previews
-                            const darkPreviewPath = await savePreviewCanvas('#36393F', 'rolecolor-dark-preview.png', userAvatarUrl, roleColor, member.displayName);
-                            const lightPreviewPath = await savePreviewCanvas('#FFFFFF', 'rolecolor-light-preview.png', userAvatarUrl, roleColor, member.displayName);
-                
+                            
+                            //temp save preview images with userid file name to prevent overlap 
+                            const userId = interaction.user.id;
+                            const darkPreviewPath = await savePreviewCanvas('#36393F', 'rolecolor-dark-preview.png', userAvatarUrl, roleColor, member.displayName, userId);
+                            const lightPreviewPath = await savePreviewCanvas('#FFFFFF', 'rolecolor-light-preview.png', userAvatarUrl, roleColor, member.displayName, userId);
+                                            
                             // Create 'Confirm' 'Cancel' and 'Switch theme' buttons under the preview 
                             const confirmButton = new ButtonBuilder()
                                 .setCustomId('confirm')
@@ -278,9 +279,10 @@ async function fetchUserImage(url) {
 }
 
 // temp save preview images until the command is completed or times out
-async function savePreviewCanvas(backgroundColor, fileName, userAvatarUrl, roleColor, displayName) {
+async function savePreviewCanvas(backgroundColor, fileName, userAvatarUrl, roleColor, displayName, userId) {
     const buffer = await createPreviewCanvas(backgroundColor, userAvatarUrl, roleColor, displayName);
-    const filePath = path.join(__dirname, '../../../previews/', fileName);
+    const uniqueFileName = `${userId}-${fileName}`;
+    const filePath = path.join(__dirname, '../../../previews/', uniqueFileName);
     fs.writeFileSync(filePath, buffer);
     return filePath;
 }
