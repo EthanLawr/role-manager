@@ -11,16 +11,17 @@ This bot allows users to manage assigned roles within Discord communities, parti
 
 ### For Users
 - **Role Assignment**: Users can add their role to others or remove it.
-- **Role Customization**: Customize their roles' name and color.
-- **Preview Changes**: Preview how the role will look in chat in both dark and light mode before finalizing the change.
-- **Collection Command**: Use the 'Collection' command to see what percentage of the available roles you have!
+- **Role Customization**: Users can customize their role names and colors.
+- **Preview Changes**: Users can preview how a role will look in chat in both dark and light mode before finalizing the change.
+- **Collection Command**: Users can see what percentage of the available roles they have!
 <br>
 <br>
 
 ## Prerequisites
 
-Before starting, ensure you have:
-- Node.js installed.
+Before starting, ensure you have the following installed:
+- Node.js version 16.9.0 or higher
+- NPM version 14.14.1 or higher
 
 ## Setup
 
@@ -70,7 +71,7 @@ npm install
 ### Step 4: Run the Bot
 
 ```bash
-node bot.js
+npm start
 ```
 <br>
 <br>
@@ -84,7 +85,7 @@ The `/manager` command is used to add or remove role managers, list all role man
 ### Adding a Role Manager
 - **Description**: Add a user as a role manager for a specific role.
 
-- **Usage**: `/manager add [user] [role]`
+- **Usage**: `/manager add [user [user]] [role [role]]`
 
 - **Parameters**:
   - `user`: The user you want to add as a role manager. (Required)
@@ -93,7 +94,7 @@ The `/manager` command is used to add or remove role managers, list all role man
 ### Removing a Role Manager
 - **Description**: Remove a user from being a role manager for a specific role.
 
-- **Usage**: `/manager remove --user [user] --role [role]`
+- **Usage**: `/manager remove [user [user]] [role [role]]`
 
 - **Parameters**:
   - `user`: The user you want to remove as a role manager. (Required)
@@ -107,7 +108,7 @@ The `/manager` command is used to add or remove role managers, list all role man
 ### Managing Server Manager Role
 - **Description**: Assign or remove a server manager role.
 
-- **Usage**: `/manager admin --role [role]`
+- **Usage**: `/manager admin [role: [role]]`
 
 - **Parameters**:
   - `role`: The server manager role to assign or remove. (Required)
@@ -128,21 +129,21 @@ The `/role` command is designed for managing assigned roles. It allows users to 
 
 ### Assigning a Role
 - **Description**: Assign your managed role to a user.
-- **Usage**: `/role add [user] [role]`
+- **Usage**: `/role add [user: [user]] [role: [role]]`
 - **Parameters**:
   - `user`: The user to whom you want to assign the role. (Required)
   - `role`: The role you want to assign to the user. (Required)
 
 ### Removing a Role
 - **Description**: Remove your managed role from a user.
-- **Usage**: `/role remove --user [user] --role [role]`
+- **Usage**: `/role remove [user: [user]] [role: [role]]`
 - **Parameters**:
   - `user`: The user from whom you want to remove the role. (Required)
   - `role`: The role you want to remove from the user. (Required)
 
 ### Customizing a Role
 - **Description**: Customize a managed role's name and color.
-- **Usage**: `/role customize [role: [role selection]] [color: [hex color code]] [name: [new role name]]`
+- **Usage**: `/role customize [role: [role]] [color: [hex color code]] [name: [new role name]]`
 - **Parameters**:
   - `role`: The role you want to customize. (Required)
   - `color`: Hex color code for the new color of the role. (Optional)

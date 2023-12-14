@@ -1,4 +1,18 @@
 {
+  "name": "role_manager",
+  "version": "1.0",
+  "description": "Discord bot to help you manage your roles in a given server",
+  "keywords": [
+    "discord",
+    "discord-bot"
+  ],
+  "homepage": "https://github.com/isahooman/role-manager#readme",
+  "main": "bot.js",
+  "repository": {
+    "type": "git",
+    "url": "github:isahooman/role-manager"
+  },
+  "license": "MIT",
   "dependencies": {
     "canvas": "^2.11.2",
     "discord.js": "^14.11.0",
@@ -7,5 +21,12 @@
     "moment-duration-format": "^2.3.2",
     "node-fetch": "^3.3.2",
     "sharp": "^0.33.0"
+  },
+  "engines": {
+    "node": ">=16.9.0",
+    "npm": ">=14.14.1"
+  },
+  "scripts": {
+    "start": "start.bat"
   }
 }
